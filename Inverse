@@ -1,0 +1,17 @@
+import pandas as pd
+
+# Load your Excel file
+input_file = 'input.xlsx'     # Replace with your file name
+sheet_name = 'Sheet1'         # Replace with your actual sheet name if different
+
+# Read the Excel file
+df = pd.read_excel(input_file, sheet_name=sheet_name)
+
+# Reverse the order of columns
+df_reversed = df[df.columns[::-1]]
+
+# Save to a new Excel file
+output_file = 'output_reversed.xlsx'
+df_reversed.to_excel(output_file, index=False)
+
+print(f"Reversed columns saved to '{output_file}'")
